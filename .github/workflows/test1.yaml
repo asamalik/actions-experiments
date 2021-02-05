@@ -1,0 +1,23 @@
+name: A test of a test!
+
+on:
+- pull_request
+
+jobs:
+  happy_job:
+    name: Happy job for demonstration purposes
+    strategy:
+      matrix:
+        distro:
+          - fedora 33
+    runs-on: ubuntu-latest
+    container: 
+      image: fedora:33
+    
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - run: ls
+
+    - run: cat /etc/fedora-release
